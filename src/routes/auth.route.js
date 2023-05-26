@@ -44,6 +44,10 @@ module.exports = (app) => {
 
     app.post('/api/auth/register', middlewareI.isUserExist, controller.register)
     app.post('/api/auth/login', controller.login)
-    app.post('/welcome', middlewareVerif.verifyToken)
+    app.get('/api/auth/verify', middlewareVerif.verifyToken, (req, res) => {
+        res.json({
+            data: req.user
+        })
+    })
 
 }

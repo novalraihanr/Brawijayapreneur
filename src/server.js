@@ -2,9 +2,10 @@ const express = require('express')
 const dotenv = require('dotenv')
 const cors = require('cors')
 const path = require('path')
+const cookieParser = require('cookie-parser')
 
 const app = express()
-
+app.use(cookieParser())
 
 app.set('views', path.join(__dirname, './views'))
 const publicDirectory = path.join(__dirname + '/public')
@@ -46,7 +47,7 @@ const { db } = require('./models')
 const seed = require('./models/seeds')
 
 db.sequelize
-    .sync({ force : true })
+    .sync({  })
     .then(() => {
         // seed.userSeed()
         // seed.categorySeed()

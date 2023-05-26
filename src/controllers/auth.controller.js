@@ -39,7 +39,7 @@ exports.register = async (req, res) => {
     // })
 }
 
-exports.login = (req, res) => {
+exports.login = (req, res, next) => {
     User.findOne({
         where: {
             email: req.body.email
@@ -59,15 +59,21 @@ exports.login = (req, res) => {
             })
         }
 
-        const token = jwt.sign({ id: user.id }, config.secret, {
+        const userData = {
+            id: user.id,
+            name: user.name,
+            email: user.email
+        }
+
+        const token = jwt.sign(userData, config.secret, {
             expiresIn: 86400
         })
 
         res.cookie("token", token, {
             httpOnly: true,
         });
-
-        return  res.redirect('/welcome');
+        
+        res.redirect('/welcomeHome')
 
         // res.status(200).json({
         //     id: user.id,
@@ -81,4 +87,6 @@ exports.login = (req, res) => {
             massage: err.massage
         })
     })
+
+    
 }

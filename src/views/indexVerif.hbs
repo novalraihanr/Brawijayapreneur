@@ -52,9 +52,12 @@
           <li><a class="nav-link scrollto" href="#kontak">Contact</a></li>
           <!-- <li><a class="nav-link scrollto" href="#card">Card</a></li> -->
           {{!-- <li><a class="carousel-content scrollto px-3 loginan" href="/login">Log in</a></li> --}}
-          <li><a class="carousel-content scrollto px-3 loginan" href="">
-            <img src="/img/profile.svg" width="20px" style="margin-right: 10px;" class="oop" alt="" srcset="">
-            </a></li>
+          <li>
+            <a class="carousel-content scrollto px-3 loginan" href="" id="nameElement">
+              <img src="/img/profile.svg" width="20px" style="margin-right: 10px;" class="oop" alt="" srcset="">
+            </a>
+          </li>
+
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -611,9 +614,27 @@
 
   <!-- Template Main JS File -->
   <script src="/js/indexmain.js"></script>
-  {{!-- <script>
-    fetch()
-  </script> --}}
+  <script>
+  fetch('http://localhost:5000/api/auth/verify')
+  .then(response => response.json())
+  .then(data => {
+    const store = {
+      name: data.data.name
+    };
+
+    // Mengakses data yang diterima dari backend
+    const nameElement = document.getElementById('nameElement');
+    nameElement.textContent = store.name;
+    
+    // Melakukan tindakan atau memperbarui tampilan dengan data yang diterima
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    // Menangani kesalahan jika terjadi masalah saat mengambil data dari backend
+  });
+
+
+  </script>
 
 </body>
 

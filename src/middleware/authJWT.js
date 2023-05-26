@@ -1,27 +1,22 @@
-const jwt = require('jsonwebtoken')
-const config = require('../config/auth')
+const jwt = require('jsonwebtoken');
+const config = require('../config/auth');
 
+const verifyToken = (req, res, next) => {
+  const token = req.cookies.token;
 
-verifyToken = (req, res, next) => {
-    const token = req.cookies.token; 
+  if (!token) {
+    return res.redirect('/');
+  }
 
-    if(!token) {
-        return  res.redirect('/');
+  jwt.verify(token, config.secret, (err, decoded) => {
+    if (err) {
+      console.log(err.message);
+      return res.json(err);
     }
 
-    const user = jwt.verify(token, config.secret);
-    req.user = user;
-    res.redirect('/welcomeHome');
+    req.user = decoded;
+    next();
+  });
+};
 
-    // jwt.verify(token, config.secret, (err, decoded) => {
-    //     if(err) {
-    //         return res.status(401).json({
-    //             massage: 'unauthorized'
-    //         })
-    //     }
-    //     req.userId = decoded.id
-    //     next()
-    // })
-}
-
-module.exports = { verifyToken }
+module.exports = { verifyToken };
