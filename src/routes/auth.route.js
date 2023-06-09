@@ -16,14 +16,6 @@
 // }
 
 
-
-
-
-
-
-
-
-
 const middlewareI = require('../middleware/index')
 const middlewareVerif = require('../middleware/authJWT')
 const controller = require('../controllers/auth.controller')

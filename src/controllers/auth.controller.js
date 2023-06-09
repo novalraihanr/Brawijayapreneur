@@ -1,5 +1,5 @@
 const config = require('../config/auth');
-const { db } = require('../models')
+const  db  = require('../models')
 const User = db.user
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
@@ -89,4 +89,9 @@ exports.login = (req, res, next) => {
     })
 
     
+}
+
+exports.logout = (req, res, next) => {
+    res.clearCookie('token'); 
+    res.redirect('/login');
 }

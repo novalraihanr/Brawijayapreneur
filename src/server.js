@@ -43,18 +43,18 @@ app.use(express.urlencoded({
     extended: true
 }))
 
-const { db } = require('./models')
+const db = require('./models')
 const seed = require('./models/seeds')
 
 db.sequelize
-    .sync({  })
+    .sync({ force : true })
     .then(() => {
         // seed.userSeed()
         // seed.categorySeed()
         console.log('database connected');
     })
     .catch((err) => {
-        console.error('database connection failed', err.massage);
+        console.error('database connection failed', err);
     })
 
 // app.get('/', (req, res) => {

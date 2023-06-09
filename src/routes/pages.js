@@ -12,11 +12,11 @@ router.get('/welcomeHome', (req, res) => {
 })
 
 router.get('/register', (req, res) => {
-    res.render( 'register')
+    res.render('register')
 })
 
 router.get('/login', (req, res) => {
-    res.render( 'login')
+    res.render('login')
 })
 
-module.exports = router
+module.exports = router 
