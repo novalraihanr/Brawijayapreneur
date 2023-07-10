@@ -21,7 +21,11 @@ router.get('/login', (req, res) => {
 })
 
 router.get('/admin', middlewareVerif.verifyToken, (req,res) => {
-    res.render("indexAdmin", {name: req.user.name})
+    if(req.user.role == "admin"){
+        res.render("indexAdmin", {name: req.user.name})
+    }else {
+        res.redirect('/welcomeHome')
+    }
 })
 
 module.exports = router 
