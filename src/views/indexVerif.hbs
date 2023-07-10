@@ -53,10 +53,12 @@
           <!-- <li><a class="nav-link scrollto" href="#card">Card</a></li> -->
           {{!-- <li><a class="carousel-content scrollto px-3 loginan" href="/login">Log in</a></li> --}}
           <li>
-            <a class="carousel-content scrollto px-3 loginan" href="" id="nameElement">
+            <a class="carousel-content scrollto px-3 loginan" href="">
               <img src="/img/profile.svg" width="20px" style="margin-right: 10px;" class="oop" alt="" srcset="">
+              <p style="margin: auto; font-size: 20px;">{{name}}</p>
             </a>
           </li>
+          <li><a class="nav-link scrollto" style="padding-left: 1px;" href="/api/auth/logout">Log out</a></li>
 
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>

@@ -3,6 +3,7 @@ const dotenv = require('dotenv')
 const cors = require('cors')
 const path = require('path')
 const cookieParser = require('cookie-parser')
+const bcrypt = require('bcryptjs')
 
 const app = express()
 app.use(cookieParser())
@@ -45,6 +46,23 @@ app.use(express.urlencoded({
 
 const db = require('./models')
 const seed = require('./models/seeds')
+const User = db.user
+
+function initial() {
+    User.create({
+      name: "admin1",
+      email: "admin1@gmail.com",
+      password: bcrypt.hashSync("admin123", 8),
+      role: "admin"
+    });
+    
+    User.create({
+        name: "N",
+        email: "n@gmail.com",
+        password: bcrypt.hashSync("N123", 8),
+        role: "member"
+      });
+}
 
 db.sequelize
     .sync({ force : true })
@@ -52,6 +70,7 @@ db.sequelize
         // seed.userSeed()
         // seed.categorySeed()
         console.log('database connected');
+        initial();
     })
     .catch((err) => {
         console.error('database connection failed', err);

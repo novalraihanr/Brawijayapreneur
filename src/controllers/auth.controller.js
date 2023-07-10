@@ -9,7 +9,8 @@ exports.register = async (req, res) => {
     User.create({
         name: req.body.name,
         email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 8)
+        password: bcrypt.hashSync(req.body.password, 8),
+        role: 'member'
     });
 
     return res.redirect('/login');
@@ -60,9 +61,8 @@ exports.login = (req, res, next) => {
         }
 
         const userData = {
-            id: user.id,
             name: user.name,
-            email: user.email
+            role: user.role
         }
 
         const token = jwt.sign(userData, config.secret, {
@@ -73,7 +73,7 @@ exports.login = (req, res, next) => {
             httpOnly: true,
         });
         
-        res.redirect('/welcomeHome')
+        res.redirect('/api/auth/verify')
 
         // res.status(200).json({
         //     id: user.id,
