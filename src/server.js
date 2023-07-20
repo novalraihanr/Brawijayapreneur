@@ -3,11 +3,8 @@ const dotenv = require('dotenv')
 const cors = require('cors')
 const path = require('path')
 const cookieParser = require('cookie-parser')
-<<<<<<< Updated upstream
-=======
 const bcrypt = require('bcryptjs')
 const methodOverride = require('method-override')
->>>>>>> Stashed changes
 
 const app = express()
 app.use(cookieParser())
