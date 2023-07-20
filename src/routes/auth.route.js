@@ -62,8 +62,6 @@ module.exports = (app) => {
         res.send(req.user)
     })
 
-<<<<<<< Updated upstream
-=======
 
 
     // Member
@@ -95,5 +93,4 @@ module.exports = (app) => {
     app.put('/api/article/update/:id', articleController.update)
 
     app.delete('/api/article/delete/:id', articleController.delete)
->>>>>>> Stashed changes
 }
