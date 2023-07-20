@@ -2,21 +2,10 @@ const express = require('express')
 var app = express();
 
 const router = express.Router()
-<<<<<<< Updated upstream
-
-router.get('/', (req, res) => {
-    res.render( 'index')
-})
-
-router.get('/welcomeHome', (req, res) => {
-    res.render('indexVerif')
-})
-=======
 const middlewareVerif = require('../middleware/authJWT')
 const userController = require('../controllers/user.controller')
 const dashboardController = require('../controllers/Admindashboard.controller')
 const articleController = require('../controllers/article.controller')
->>>>>>> Stashed changes
 
 router.get('/register', (req, res) => {
     res.render('register')
@@ -26,8 +15,6 @@ router.get('/login', (req, res) => {
     res.render('login')
 })
 
-<<<<<<< Updated upstream
-=======
 // Member
 router.get('/', (req, res) => {
     res.render( 'index')
@@ -69,5 +56,4 @@ router.get('/admin/articles/insert', (req,res) => {
 
 router.get('/admin/articles/edit/:id', articleController.findOne)
 
->>>>>>> Stashed changes
 module.exports = router 
