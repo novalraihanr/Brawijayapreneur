@@ -56,8 +56,6 @@ app.use(express.urlencoded({
 
 const db = require('./models')
 const seed = require('./models/seeds')
-<<<<<<< Updated upstream
-=======
 const User = db.user
 const Article = db.article
 
@@ -92,7 +90,6 @@ function initial() {
         file_url: "\\src\\PDF\\download (2).jpg"
     })
 }
->>>>>>> Stashed changes
 
 db.sequelize
     .sync({ force : true })
