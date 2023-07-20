@@ -50,11 +50,16 @@
           <li><a class="nav-link scrollto" href="#advantage">Advantage</a></li>
           <li><a class="nav-link scrollto" href="#event">Event</a></li>
           <li><a class="nav-link scrollto" href="#kontak">Contact</a></li>
+          <li><a class="nav-link scrollto" href="/welcomeHome/articles">Articles</a></li>
           <!-- <li><a class="nav-link scrollto" href="#card">Card</a></li> -->
           {{!-- <li><a class="carousel-content scrollto px-3 loginan" href="/login">Log in</a></li> --}}
           <li>
             <a class="carousel-content scrollto px-3 loginan" href="" id="nameElement">
               <img src="/img/profile.svg" width="20px" style="margin-right: 10px;" class="oop" alt="" srcset="">
+<<<<<<< Updated upstream
+=======
+              <p style="margin: auto; font-size: 20px;" id="nameElement"></p>
+>>>>>>> Stashed changes
             </a>
           </li>
 
@@ -615,11 +620,11 @@
   <!-- Template Main JS File -->
   <script src="/js/indexmain.js"></script>
   <script>
-  fetch('http://localhost:5000/api/auth/verify')
+  fetch('http://localhost:5000/api/auth/getdata')
   .then(response => response.json())
   .then(data => {
     const store = {
-      name: data.data.name
+      name: data.name
     };
 
     // Mengakses data yang diterima dari backend
@@ -632,8 +637,6 @@
     console.error('Error:', error);
     // Menangani kesalahan jika terjadi masalah saat mengambil data dari backend
   });
-
-
   </script>
 
 </body>

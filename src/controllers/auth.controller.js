@@ -83,9 +83,7 @@ exports.login = (req, res, next) => {
         //     massage: "login berhasil"
         // })
     }).catch((err) => {
-        res.status(500).json({
-            massage: err.massage
-        })
+        res.redirect('/login')
     })
 
     

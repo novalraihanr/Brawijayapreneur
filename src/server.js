@@ -3,14 +3,25 @@ const dotenv = require('dotenv')
 const cors = require('cors')
 const path = require('path')
 const cookieParser = require('cookie-parser')
+<<<<<<< Updated upstream
+=======
+const bcrypt = require('bcryptjs')
+const methodOverride = require('method-override')
+>>>>>>> Stashed changes
 
 const app = express()
 app.use(cookieParser())
 
+// HBS 
 app.set('views', path.join(__dirname, './views'))
 const publicDirectory = path.join(__dirname + '/public')
 app.use(express.static(publicDirectory))
 app.set('view engine', 'hbs')
+
+// Method Override
+app.use(methodOverride('_method'))
+
+
 
 dotenv.config()
 
@@ -45,6 +56,43 @@ app.use(express.urlencoded({
 
 const db = require('./models')
 const seed = require('./models/seeds')
+<<<<<<< Updated upstream
+=======
+const User = db.user
+const Article = db.article
+
+function initial() {
+    User.create({
+      name: "admin1",
+      email: "admin1@gmail.com",
+      password: bcrypt.hashSync("admin123", 8),
+      role: "admin"
+    });
+    
+    User.create({
+        name: "N",
+        email: "n@gmail.com",
+        password: bcrypt.hashSync("N123", 8),
+        role: "member"
+      });
+    
+    Article.create({
+        id_article: 1,
+        title: "Nuklir",
+        author: "N",
+        tags: "marketing",
+        file_url: "\\src\\PDF\\Draft Proposal.pdf"
+    })
+
+    Article.create({
+        id_article: 2,
+        title: "Atom",
+        author: "N",
+        tags: "humanresource",
+        file_url: "\\src\\PDF\\download (2).jpg"
+    })
+}
+>>>>>>> Stashed changes
 
 db.sequelize
     .sync({ force : true })
