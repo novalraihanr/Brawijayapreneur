@@ -12,7 +12,13 @@ router.get('/register', (req, res) => {
 })
 
 router.get('/login', (req, res) => {
-    res.render('login')
+    var isMessage = false
+    var report = req.flash('message')
+    if(report.length > 0){
+        isMessage = true
+    }
+    console.log(report)
+    res.render('login', {message: report, isMessage: isMessage})
 })
 
 // Member

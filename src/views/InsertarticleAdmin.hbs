@@ -380,10 +380,6 @@
                                 <div class="card-body">
                                    <form action="/api/article/post" method="POST" enctype="multipart/form-data">
                                         <div class="form-group">
-                                            <label for="id_article">Id_Article (Number)</label>
-                                            <input type="id_article" class="form-control" id="id_article" name="id_article">
-                                        </div>
-                                        <div class="form-group">
                                             <label for="title">Title : </label>
                                             <input type="title" class="form-control" id="title" name="title">
                                         </div>
@@ -470,7 +466,7 @@
     <script src="/js/sb-admin-2.min.js"></script>
 
     <script>
-        fetch('http://localhost:5000/api/auth/getdata')
+        fetch('http://brawijayapreneur.com/api/auth/getdata')
         .then(response => response.json())
         .then(data => {
         const store = {
@@ -479,7 +475,7 @@
         };
 
         if(store.role != "admin"){
-            window.location.replace("http://localhost:5000/welcomeHome")
+            window.location.replace("http://brawijayapreneur.com/welcomeHome")
         }
 
         // Mengakses data yang diterima dari backend

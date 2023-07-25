@@ -1,14 +1,23 @@
 <!DOCTYPE html>
     <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+        <title>BrawijayaPreneur</title>
+        <meta content="" name="description">
+        <meta content="" name="keywords">
+
+        <!-- Favicons -->
+        <link href="/img/icon.png" rel="icon">
+        <link href="/img/icon.png" rel="apple-touch-icon">
 
         <!--=============== REMIXICONS ===============-->
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
         <!--=============== CSS ===============-->
         <link rel="stylesheet" href="/css/loginstyles.css">
+
 
         <title>Beautiful glass login form - Bedimcode</title>
     </head>
@@ -58,6 +67,11 @@
 
                         <a href="/register" class="login__forgot">Don't have an account ? Click here</a>
                     </div>
+                    {{#if isMessage}}
+                    <div class="alert error">
+                        <span class="alertText">{{message}}<br class="clear"></span>
+                    </div>
+                    {{/if}}
                 </form>
             </div>
         </div>

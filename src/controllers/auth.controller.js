@@ -9,7 +9,8 @@ exports.register = async (req, res) => {
     User.create({
         name: req.body.name,
         email: req.body.email,
-        password: bcrypt.hashSync(req.body.password, 8)
+        password: bcrypt.hashSync(req.body.password, 8),
+        role: 'member'
     });
 
     return res.redirect('/login');
@@ -46,23 +47,21 @@ exports.login = (req, res, next) => {
         }
     }).then((user) => {
         if(!user) {
-            return res.status(404).json({
-                massage: 'email not found'
-            }) 
+            req.flash("message", "Please register first")
+            return res.redirect('/login')
         }
         let passwordIsValid = bcrypt.compareSync(req.body.password, user.password)
 
         if(!passwordIsValid) {
-            return res.status(400).json({
-                accessToken: null,
-                massage: 'invalid password'
-            })
+            req.flash("message", "Wrong password")
+            return res.redirect('/login')
         }
 
         const userData = {
             id: user.id,
             name: user.name,
-            email: user.email
+            email: user.email,
+            role: user.role
         }
 
         const token = jwt.sign(userData, config.secret, {
@@ -73,7 +72,7 @@ exports.login = (req, res, next) => {
             httpOnly: true,
         });
         
-        res.redirect('/welcomeHome')
+        res.redirect('/api/auth/verify')
 
         // res.status(200).json({
         //     id: user.id,
@@ -83,6 +82,7 @@ exports.login = (req, res, next) => {
         //     massage: "login berhasil"
         // })
     }).catch((err) => {
+        req.flash('message', 'Error')
         res.redirect('/login')
     })
 

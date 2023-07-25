@@ -1,12 +1,12 @@
 const Sequelize = require('sequelize')
 
 const config = {
-    username: process.env.DB_USERNAME,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
-    host: process.env.DB_HOSTNAME,
-    port: process.env.DB_PORT,
-    dialect: process.env.DB_DIALECT,
+    username: 'root',
+    password: '12344321',
+    database: 'learnexpress',
+    host: 'localhost',
+    port: 3306,
+    dialect: 'mysql',
     pool: {
         max: 5,
         min: 0,

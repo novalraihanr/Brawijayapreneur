@@ -5,11 +5,10 @@ const path = require("path")
 
 exports.create = (req, res) => {
     Article.create({
-        id_article: req.body.id_article,
         title : req.body.title,
         author : req.body.author,
         tags : req.body.tags,
-        file_url : '\\'+ req.file.path
+        file_url : '/'+ req.file.path
     })
 
      res.redirect('/admin/articles');
@@ -18,7 +17,7 @@ exports.create = (req, res) => {
 exports.download = (req, res) => {
     const id = req.params.id
     Article.findByPk(id).then((article) => {
-        var file = path.resolve(__dirname, '..') + '\\' +article.file_url.split('\\').slice(2).join('\\')
+        var file = path.resolve(__dirname, '..') + '/' +article.file_url.split('/').slice(2).join('/')
         res.download(file)
     })
 }

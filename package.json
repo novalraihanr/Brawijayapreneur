@@ -1,20 +1,22 @@
 {
-  "name": "exshop",
+  "name": "brawpreneur",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "n": "nodemon src/server.js",
+    "n": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "ridha ilham",
+  "author": "ridha ilham & noval raihan r",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-session": "^1.17.3",
     "hbs": "^4.2.0",
     "jsonwebtoken": "^9.0.0",
     "method-override": "^3.0.0",

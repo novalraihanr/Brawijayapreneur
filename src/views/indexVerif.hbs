@@ -54,14 +54,13 @@
           <!-- <li><a class="nav-link scrollto" href="#card">Card</a></li> -->
           {{!-- <li><a class="carousel-content scrollto px-3 loginan" href="/login">Log in</a></li> --}}
           <li>
-            <a class="carousel-content scrollto px-3 loginan" href="" id="nameElement">
-              <img src="/img/profile.svg" width="20px" style="margin-right: 10px;" class="oop" alt="" srcset="">
-<<<<<<< Updated upstream
-=======
-              <p style="margin: auto; font-size: 20px;" id="nameElement"></p>
->>>>>>> Stashed changes
+            <a class="carousel-content scrollto px-3 loginan" href="">
+              <img src="/img/profile.svg" width="15px" style="margin-right: 10px;" class="oop" alt="" srcset="">
+              <p style="margin: auto; font-size: 15px;" id="nameElement"></p>
             </a>
           </li>
+
+         <li><a style="padding-left: 1px;" class="nav-link scrollto" href="/api/auth/logout">Log out</a></li>
 
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -86,9 +85,9 @@
               <h2 class="animate__animated animate__fadeInDown">Igniting youth innovation through entrepreneurship guidance, <br>resources, and collaboration at Brawijaya University</h2>
               <h4 class="animate__animated animate__fadeInUp">Dengan visi untuk meningkatkan wirausaha muda di Universitas Brawijaya.</h4>
               <div>
-                <a href="#tentang" class="btn-menu animate__animated animate__fadeInUp scrollto mb-2">Consult Now</a>
+                <a href="https://wa.me/6285641758418" class="btn-menu animate__animated animate__fadeInUp scrollto mb-2">Consult Now</a>
 
-                <a href="#tentang" class="btn-menu animate__animated animate__fadeInUp scrollto">Sign up your business</a>
+                <a href="https://wa.me/6285641758418" class="btn-menu animate__animated animate__fadeInUp scrollto">Sign up your business</a>
               </div>
             </div>
           </div>
@@ -576,7 +575,7 @@
                   class="bx bxl-twitter"></i></a> -->
               <!-- <a href="https://youtube.com/channel/UC9csT5foGxgj5LSAXhVLy9w" class="youtube" data-aos="fade-down"
                 data-aos-delay="200"><i class="bx bxl-youtube"></i></a> -->
-              <a href="#" class="whatsapp"
+              <a href="https://wa.me/6285641758418" class="whatsapp"
                 data-aos="fade-up" data-aos-delay="200"><i class="bx bxl-whatsapp"></i></a>
             </div>
           </div>
@@ -620,7 +619,7 @@
   <!-- Template Main JS File -->
   <script src="/js/indexmain.js"></script>
   <script>
-  fetch('http://localhost:5000/api/auth/getdata')
+  fetch('http://brawijayapreneur.com/api/auth/getdata')
   .then(response => response.json())
   .then(data => {
     const store = {

@@ -54,9 +54,11 @@ module.exports = (app) => {
     app.post('/api/auth/login', controller.login)
     app.get('/api/auth/logout', controller.logout)
     app.get('/api/auth/verify', middlewareVerif.verifyToken, (req, res) => {
-        res.json({
-            data: req.user
-        })
+        if(req.user.role == "admin"){
+             res.redirect('/admin');
+        }else {
+            res.redirect('/welcomeHome')
+        }
     })
     app.get('/api/auth/getdata', middlewareVerif.verifyToken, (req, res) => {
         res.send(req.user)

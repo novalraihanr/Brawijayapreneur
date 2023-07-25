@@ -1,3 +1,3 @@
 module.exports = {
-    secret: process.env.APP_KEY
+    secret: 'brawpreneur-key'
 }
